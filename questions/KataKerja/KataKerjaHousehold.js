@@ -1,0 +1,22 @@
+window.loadedQuestions = [
+  { v1: "Clean", v2: "cleaned", v3: "cleaned", arti: "membersihkan" },
+  { v1: "Wash", v2: "washed", v3: "washed", arti: "mencuci" },
+  { v1: "Cook", v2: "cooked", v3: "cooked", arti: "memasak" },
+  { v1: "Sweep", v2: "swept", v3: "swept", arti: "menyapu" },
+  { v1: "Mop", v2: "mopped", v3: "mopped", arti: "mengepel" },
+  { v1: "Dust", v2: "dusted", v3: "dusted", arti: "membersihkan debu" },
+  { v1: "Vacuum", v2: "vacuumed", v3: "vacuumed", arti: "menyedot debu" },
+  { v1: "Iron", v2: "ironed", v3: "ironed", arti: "menyetrika" },
+  { v1: "Fold", v2: "folded", v3: "folded", arti: "melipat" },
+  { v1: "Hang", v2: "hung", v3: "hung", arti: "menggantung" },
+  { v1: "Dry", v2: "dried", v3: "dried", arti: "mengeringkan" },
+  { v1: "Do", v2: "did", v3: "done", arti: "melakukan (pekerjaan rumah)" },
+  { v1: "Make", v2: "made", v3: "made", arti: "membuat (ranjang/makanan)" },
+  { v1: "Fix", v2: "fixed", v3: "fixed", arti: "memperbaiki" },
+  { v1: "Repair", v2: "repaired", v3: "repaired", arti: "memperbaiki" },
+  { v1: "Take", v2: "took", v3: "taken", arti: "mengambil (sampah, pakaian)" },
+  { v1: "Put", v2: "put", v3: "put", arti: "meletakkan" },
+  { v1: "Organize", v2: "organized", v3: "organized", arti: "mengatur / merapikan" },
+  { v1: "Water", v2: "watered", v3: "watered", arti: "menyiram (tanaman)" },
+  { v1: "Paint", v2: "painted", v3: "painted", arti: "mengecat" }
+];
