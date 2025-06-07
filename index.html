@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kuis Bahasa Inggris</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 900px; margin: auto; }
+    .kategori-section { margin-bottom: 20px; }
+    .question { border-bottom: 1px solid #ccc; margin-bottom: 20px; padding-bottom: 10px; }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Kuis Bahasa Inggris</h1>
+
+  <div class="kategori-section">
+    <label>Tenses:</label>
+    <select onchange="loadCategory('Tenses', this.value)">
+      <option value="">-- Pilih Subkategori --</option>
+      <option value="TensesFormula">Rumus Tenses</option>
+      <option value="TranslateToSimplePresentTenses">Jadikan Simple Present Tenses</option>
+      <option value="TranslateToPresentContinousTenses">Jadikan Present Continous Tenses</option>
+      <option value="TranslateToPresentPerfectTenses">Jadikan Present Perfect Tenses</option>
+      <option value="TranslateToPresentPerfectContinousTenses">Jadikan Present Perfect Continous Tenses</option>
+      <option value="TranslateToSimplePastTenses">Jadikan Simple Past Tenses</option>
+      <option value="TranslateToPastContinousTenses">Jadikan Past Continous Tenses</option>
+      <option value="TranslateToPastPerfectTenses">Jadikan Past Perfect Tenses</option>
+      <option value="TranslateToPastPerfectContinousTenses">Jadikan Past Perfect Continous Tenses</option>
+      <option value="TranslateToSimpleFutureTenses">Jadikan Simple Future Tenses</option>
+      <option value="TranslateToFutureContinousTenses">Jadikan Future Continous Tenses</option>
+      <option value="TranslateToFuturePerfectTenses">Jadikan Future Perfect Tenses</option>
+      <option value="TranslateToFuturePerfectContinousTenses">Jadikan Future Perfect Continous Tenses</option>
+      <option value="TranslateToSimplePastFutureTenses">Jadikan Simple Past Future Tenses</option>
+      <option value="TranslateToPastFutureContinousTenses">Jadikan Past Future Continous Tenses</option>
+      <option value="TranslateToPastFuturePerfectTenses">Jadikan Past Future Perfect Tenses</option>
+      <option value="TranslateToPastFuturePerfectContinousTenses">Jadikan Past Future Perfect Continous Tenses</option>
+    </select>
+  </div>
+
+  <div class="kategori-section">
+    <label>Kata Kerja:</label>
+    <select onchange="loadCategory('KataKerja', this.value)">
+      <option value="">-- Pilih Subkategori --</option>
+      <option value="KataKerja">Kata Kerja</option>
+      <option value="KataKerjaDailyActivities">Daily Activities</option>
+      <option value="KataKerjaSchool">School</option>
+      <option value="KataKerjaWork">Work</option>
+      <option value="KataKerjaTravel">Travel</option>
+      <option value="KataKerjaEmotion">Emotion</option>
+      <option value="KataKerjaHousehold">Household</option>
+      <option value="KataKerjaNature">Nature</option>
+      <option value="KataKerjaHealth">Health</option>
+      <option value="KataKerjaCommunications">Communications</option>
+    </select>
+  </div>
+
+  <div class="kategori-section">
+    <label>Kata Sifat:</label>
+    <select onchange="loadCategory('KataSifat', this.value)">
+      <option value="">-- Pilih Subkategori --</option>
+      <option value="KataSifat">Kata Sifat</option>
+      <option value="KataSifatDescriptive">Descriptive</option>
+      <option value="KataSifatQuantitative">Quantitative</option>
+      <option value="KataSifatDemonstrative">Demonstrative</option>
+      <option value="KataSifatDistributive">Distributive</option>
+      <option value="KataSifatPossesif">Possesif</option>
+      <option value="KataSifatInterrogative">Interrogative</option>
+      <option value="KataSifatNumeral">Numeral</option>
+      <option value="KataSifatOpinionEvaluative">Opinion and Evaluative</option>
+      <option value="KataSifatAdjectivaEmosi">Adjectiva Emotion</option>
+      <option value="KataSifatAdjectivadariParticiple">Adjectiva form Participle</option>
+    </select>
+  </div>
+
+  <div class="kategori-section">
+    <label>Kata Hubung:</label>
+    <select onchange="loadCategory('KataHubung', this.value)">
+      <option value="">-- Pilih Subkategori --</option>
+      <option value="KataHubung">Kata Hubung</option>
+      <option value="KataHubungAddition">Addition</option>
+      <option value="KataHubungCauseEffect">Cause and Effect</option>
+      <option value="KataHubungChoice">Choice</option>
+      <option value="KataHubungCondition">Condition</option>
+      <option value="KataHubungContrast">Contrast</option>
+      <option value="KataHubungPurpose">Purpose</option>
+      <option value="KataHubungTime">Time</option>
+    </select>
+  </div>
+
+  <p id="totalScore">Total Skor: 0 / 0 (0%)</p>
+  <div id="quizContainer">Silakan pilih subkategori dari salah satu bagian untuk memulai kuis.</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
