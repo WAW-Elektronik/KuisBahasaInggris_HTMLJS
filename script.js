@@ -2,6 +2,16 @@ let questions = [];
 let currentCategory = "";
 let scorePerQuestion = {};
 
+function normalizeAnswer(answer) {
+  return answer
+    .toLowerCase()
+    .split(",")
+    .map(item => item.trim())
+    .filter(item => item !== "")
+    .sort()
+    .join(",");
+}
+
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -60,6 +70,10 @@ function renderQuestions() {
                <label>V2: <input type="text" id="v2-${index}"></label>
                <label>V3: <input type="text" id="v3-${index}"></label>
                <label>Arti: <input type="text" id="arti-${index}"></label>`;
+    } else if (currentCategory === "KataKerjaBantu") {
+      html += `<p><strong>${q.word}</strong></p>
+               <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
+    
     } else if (currentCategory === "KataSifat") {
       html += `<p>Apa arti kata <strong>"${q.word}"</strong>?</p>
                <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
@@ -100,6 +114,16 @@ function checkAnswer(index) {
     feedback = correct
       ? `<span class="correct">Benar!</span>`
       : `<span class="wrong">Salah! V2: ${q.v2}, V3: ${q.v3}, Arti: ${q.arti}</span>`;
+  } else if (currentCategory === "KataKerjaBantu") {
+  const userInput = document.getElementById(`arti-${index}`).value;
+  const userSet = normalizeAnswer(userInput);
+  const correctSet = normalizeAnswer(q.arti);
+
+  correct = userSet === correctSet;
+
+  feedback = correct
+    ? `<span class="correct">Benar!</span>`
+    : `<span class="wrong">Salah! Jawaban benar: ${q.arti}</span>`;
   } else if (currentCategory === "KataSifat") {
     const arti = document.getElementById(`arti-${index}`).value.trim().toLowerCase();
     correct = arti === q.arti.toLowerCase();
