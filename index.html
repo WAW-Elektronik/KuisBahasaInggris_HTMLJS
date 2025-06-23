@@ -54,14 +54,17 @@
       <option value="KataKerjaCommunications">Communications</option>
     </select>
   </div>
-
+  
   <div class="kategori-section">
     <label>Kata Kerja Bantu (Auxiliary Verbs):</label>
     <select onchange="loadCategory('KataKerjaBantu', this.value)">
       <option value="">-- Pilih Subkategori --</option>
-      <option value="PrimaryAuxiliary">Primary</option>
-      <option value="ModalAuxiliary">Modal</option>
-      <option value="SemiAuxiliary">Semi</option>
+      <option value="PrimaryAuxiliary">Primary Pendahuluan</option>
+      <option value="ModalAuxiliary">Modal Pendahuluan</option>
+      <option value="ModalAuxiliaryTest1">Modal Test 1</option>
+      <option value="ModalAuxiliaryTest2">Modal Test 2</option>
+      <option value="ModalAuxiliaryTest3">Modal Test 3</option>
+      <option value="SemiAuxiliary">Semi Pendahuluan</option>
     </select>
   </div>
 
@@ -95,6 +98,34 @@
       <option value="KataHubungContrast">Contrast</option>
       <option value="KataHubungPurpose">Purpose</option>
       <option value="KataHubungTime">Time</option>
+    </select>
+  </div>
+
+  <div class="kategori-section">
+    <label>Time Expressions:</label>
+    <select onchange="loadCategory('TimeExpressions', this.value)">
+      <option value="">-- Pilih Subkategori --</option>
+      <option value="TimeExpressions">Time Expressions</option>
+    </select>
+  </div>
+
+  <div class="kategori-section">
+    <label>Ordinal Number:</label>
+    <select onchange="loadCategory('OrdinalNumber', this.value)">
+      <option value="">-- Pilih Subkategori --</option>
+      <option value="OrdinalNumberPenulisan">Penulisan</option>
+      <!--<option value="OrdinalNumberPenggunaan">Penggunaan</option>-->
+    </select>
+  </div>
+
+  <div class="kategori-section">
+    <label>Time (British vs American):</label>
+    <select onchange="loadCategory('TimeBrEAmE', this.value)">
+      <option value="">-- Pilih Subkategori --</option>
+      <option value="TimeBrEAmEPenyebutanJam">Penyebutan Jam</option>
+      <option value="TimeBrEAmEAMMorning">AM/PM vs Morning/Afternoon</option>
+      <option value="TimeBrEAmEDateTime">Format Tanggal dan Waktu</option>
+      <!--<option value="OrdinalNumberPenggunaan">Penggunaan</option>-->
     </select>
   </div>
 
