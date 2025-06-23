@@ -73,7 +73,6 @@ function renderQuestions() {
     } else if (currentCategory === "KataKerjaBantu") {
       html += `<p><strong>${q.word}</strong></p>
                <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
-    
     } else if (currentCategory === "KataSifat") {
       html += `<p>Apa arti kata <strong>"${q.word}"</strong>?</p>
                <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
@@ -87,7 +86,20 @@ function renderQuestions() {
            <label>(+) <input type="text" id="pos-${index}" placeholder="positif"></label><br>
            <label>(-) <input type="text" id="neg-${index}" placeholder="negatif"></label><br>
            <label>(?) <input type="text" id="int-${index}" placeholder="interogatif"></label>`;
-    }
+    } else if (currentCategory === "TimeExpressions") {
+      html += `<p><strong>${q.word}</strong></p>
+               <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
+    } else if (currentCategory === "OrdinalNumber") {
+  html += `<p>Soal: ${q.Soal}</p>
+           <label>Penulisan Singkat: <input type="text" id="PenulisanSingkat-${index}"></label>
+           <label>Penulisan Panjang/Ordinal: <input type="text" id="PenulisanPanjang-${index}"></label>
+           <div id="feedback-${index}"></div>`;
+    } else if (currentCategory === "TimeBrEAmE") {
+  html += `<p>Soal: ${q.Soal}</p>
+           <label>British: <input type="text" id="British-${index}"></label>
+           <label>American: <input type="text" id="American-${index}"></label>
+           <div id="feedback-${index}"></div>`;
+    } 
 
     html += `<br><button onclick="checkAnswer(${index})">Cek Jawaban</button>
              <div class="feedback" id="feedback-${index}"></div>`;
@@ -158,8 +170,45 @@ function checkAnswer(index) {
         (+) ${q.answer.positive}<br>
         (-) ${q.answer.negative}<br>
         (?) ${q.answer.interrogative}</span>`;
-    }
+    } else if (currentCategory === "TimeExpressions") {
+  const userInput = document.getElementById(`arti-${index}`).value;
+  const userSet = normalizeAnswer(userInput);
+  const correctSet = normalizeAnswer(q.arti);
 
+  correct = userSet === correctSet;
+
+  feedback = correct
+    ? `<span class="correct">Benar!</span>`
+    : `<span class="wrong">Salah! Jawaban benar: ${q.arti}</span>`;
+  } else if (currentCategory === "OrdinalNumber") {
+  const PenulisanSingkat = document.getElementById(`PenulisanSingkat-${index}`).value.trim().toLowerCase();
+  const PenulisanPanjang = document.getElementById(`PenulisanPanjang-${index}`).value.trim().toLowerCase();
+
+  if (
+    PenulisanSingkat === q.PenulisanSingkat.toLowerCase() &&
+    PenulisanPanjang === q.PenulisanPanjang.toLowerCase()
+  ) {
+    correct = true;
+  }
+
+  feedback = correct
+    ? `<span class="correct">Benar!</span>`
+    : `<span class="wrong">Salah! Penulisan Singkat: ${q.PenulisanSingkat}, Penulisan Panjang/Ordinal: ${q.PenulisanPanjang}</span>`;
+} else if (currentCategory === "TimeBrEAmE") {
+  const British = document.getElementById(`British-${index}`).value.trim().toLowerCase();
+  const American = document.getElementById(`American-${index}`).value.trim().toLowerCase();
+
+  if (
+    British === q.British.toLowerCase() &&
+    American === q.American.toLowerCase()
+  ) {
+    correct = true;
+  }
+
+  feedback = correct
+    ? `<span class="correct">Benar!</span>`
+    : `<span class="wrong">Salah! British: ${q.British}, American: ${q.American}</span>`;
+}
 
   if (!(index in scorePerQuestion)) {
     scorePerQuestion[index] = correct ? 1 : 0;
