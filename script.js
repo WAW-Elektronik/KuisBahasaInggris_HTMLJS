@@ -70,7 +70,7 @@ function renderQuestions() {
                <label>V2: <input type="text" id="v2-${index}"></label>
                <label>V3: <input type="text" id="v3-${index}"></label>
                <label>Arti: <input type="text" id="arti-${index}"></label>`;
-    } else if (currentCategory === "CEFR") {
+    } else if (currentCategory === "CERF") {
       html += `<p>Apa arti kata <strong>"${q.word}"</strong>?</p>
                <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
     } else if (currentCategory === "KataKerjaBantu") {
@@ -139,7 +139,7 @@ function checkAnswer(index) {
   feedback = correct
     ? `<span class="correct">Benar!</span>`
     : `<span class="wrong">Salah! Jawaban benar: ${q.arti}</span>`;
-  } else if (currentCategory === "CEFR") {
+  } else if (currentCategory === "CERF") {
     const arti = document.getElementById(`arti-${index}`).value.trim().toLowerCase();
     correct = arti === q.arti.toLowerCase();
 
@@ -234,3 +234,4 @@ function updateTotalScore() {
   const percent = total > 0 ? ((score / total) * 100).toFixed(2) : "0";
   document.getElementById("totalScore").innerText = `Total Skor: ${score} / ${total} (${percent}%)`;
 }
+
