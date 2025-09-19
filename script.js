@@ -70,6 +70,9 @@ function renderQuestions() {
                <label>V2: <input type="text" id="v2-${index}"></label>
                <label>V3: <input type="text" id="v3-${index}"></label>
                <label>Arti: <input type="text" id="arti-${index}"></label>`;
+    } else if (currentCategory === "CEFR") {
+      html += `<p>Apa arti kata <strong>"${q.word}"</strong>?</p>
+               <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
     } else if (currentCategory === "KataKerjaBantu") {
       html += `<p><strong>${q.word}</strong></p>
                <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
@@ -136,6 +139,13 @@ function checkAnswer(index) {
   feedback = correct
     ? `<span class="correct">Benar!</span>`
     : `<span class="wrong">Salah! Jawaban benar: ${q.arti}</span>`;
+  } else if (currentCategory === "CEFR") {
+    const arti = document.getElementById(`arti-${index}`).value.trim().toLowerCase();
+    correct = arti === q.arti.toLowerCase();
+
+    feedback = correct
+      ? `<span class="correct">Benar!</span>`
+      : `<span class="wrong">Salah! Arti yang benar: ${q.arti}</span>`;
   } else if (currentCategory === "KataSifat") {
     const arti = document.getElementById(`arti-${index}`).value.trim().toLowerCase();
     correct = arti === q.arti.toLowerCase();
