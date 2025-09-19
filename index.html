@@ -39,6 +39,19 @@
   </div>
 
   <div class="kategori-section">
+    <label>Pengetahuan Kata Sesuai CEFR:</label>
+    <select onchange="loadCategory('CEFR', this.value)">
+      <option value="">-- Pilih Subkategori --</option>
+      <option value="A1">A1 Level</option>
+      <option value="A2">A2 Level</option>
+      <option value="B1">B1 Level</option>
+      <option value="B2">B2 Level</option>
+      <option value="C1">C1 Level</option>
+      <option value="C2">C2 Level</option>
+    </select>
+  </div>
+
+  <div class="kategori-section">
     <label>Kata Kerja:</label>
     <select onchange="loadCategory('KataKerja', this.value)">
       <option value="">-- Pilih Subkategori --</option>
