@@ -42,7 +42,15 @@ function loadCategory(mainCategory, subCategory) {
   script.onload = () => {
     if (Array.isArray(window.loadedQuestions) && window.loadedQuestions.length > 0) {
       questions = window.loadedQuestions.map((q, i) => ({ ...q, id: `q${i}` }));
-      shuffle(questions);
+
+      // ✅ CEK apakah user ingin soal diacak
+      const shuffleCheckbox = document.getElementById("shuffleCheckbox");
+      const shouldShuffle = shuffleCheckbox ? shuffleCheckbox.checked : true;
+
+      if (shouldShuffle) {
+        shuffle(questions);
+      }
+
       renderQuestions();
     } else {
       document.getElementById("quizContainer").innerHTML = "<p>Soal tidak ditemukan atau kosong.</p>";
@@ -70,7 +78,10 @@ function renderQuestions() {
                <label>V2: <input type="text" id="v2-${index}"></label>
                <label>V3: <input type="text" id="v3-${index}"></label>
                <label>Arti: <input type="text" id="arti-${index}"></label>`;
-    } else if (currentCategory === "CERF") {
+    } else if (currentCategory === "CEFR") {
+      html += `<p>Apa arti kata <strong>"${q.word}"</strong>?</p>
+               <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
+    } else if (currentCategory === "ReferenceFromEF") {
       html += `<p>Apa arti kata <strong>"${q.word}"</strong>?</p>
                <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
     } else if (currentCategory === "KataKerjaBantu") {
@@ -109,6 +120,17 @@ function renderQuestions() {
 
     div.innerHTML = html;
     container.appendChild(div);
+
+    // ✅ Tambahan: Tekan ENTER = cek jawaban
+    const inputs = div.querySelectorAll("input[type='text']");
+    inputs.forEach(inp => {
+      inp.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault(); // mencegah form submit/pindah baris
+          checkAnswer(index);
+        }
+      });
+    });
   });
 }
 
@@ -139,7 +161,14 @@ function checkAnswer(index) {
   feedback = correct
     ? `<span class="correct">Benar!</span>`
     : `<span class="wrong">Salah! Jawaban benar: ${q.arti}</span>`;
-  } else if (currentCategory === "CERF") {
+  } else if (currentCategory === "CEFR") {
+    const arti = document.getElementById(`arti-${index}`).value.trim().toLowerCase();
+    correct = arti === q.arti.toLowerCase();
+
+    feedback = correct
+      ? `<span class="correct">Benar!</span>`
+      : `<span class="wrong">Salah! Arti yang benar: ${q.arti}</span>`;
+  } else if (currentCategory === "ReferenceFromEF") {
     const arti = document.getElementById(`arti-${index}`).value.trim().toLowerCase();
     correct = arti === q.arti.toLowerCase();
 
@@ -234,4 +263,3 @@ function updateTotalScore() {
   const percent = total > 0 ? ((score / total) * 100).toFixed(2) : "0";
   document.getElementById("totalScore").innerText = `Total Skor: ${score} / ${total} (${percent}%)`;
 }
-
