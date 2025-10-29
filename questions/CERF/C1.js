@@ -1,22 +1,23 @@
 window.loadedQuestions = [
-  { word: "abolition", arti: "penghapusan" },
-  { word: "abrupt", arti: "mendadak; tiba-tiba" },
-  { word: "abundance", arti: "kelimpahan" },
-  { word: "accelerator", arti: "alat percepatan; pedal gas" },
-  { word: "acclaim", arti: "penghargaan; memuji" },
-  { word: "accommodate", arti: "menampung; mengakomodasi" },
-  { word: "accomplishment", arti: "prestasi; pencapaian" },
-  { word: "accordance", arti: "kesesuaian" },
-  { word: "accountability", arti: "akuntabilitas; tanggung jawab" },
-  { word: "accumulate", arti: "menimbun; mengumpulkan" },
-  { word: "accuracy", arti: "ketepatan" },
-  { word: "accusation", arti: "tuduhan" },
-  { word: "acknowledge", arti: "mengakui" },
-  { word: "acquaintance", arti: "kenalan" },
-  { word: "acquire", arti: "memperoleh" },
-  { word: "activist", arti: "aktivis" },
-  { word: "adaptation", arti: "adaptasi; penyesuaian" },
-  { word: "adhere", arti: "melekat; mematuhi" },
+  { word: "abolition", arti: "penghapusan" }, //v
+  { word: "abrupt", arti: "mendadak, tiba-tiba" },//v
+  { word: "abundance", arti: "kelimpahan" },//v
+  { word: "accelerator", arti: "alat percepatan; pedal gas" },//v
+  { word: "acclaim", arti: "penghargaan, memuji" },//k
+  { word: "accommodate", arti: "mengakomodasi, menampung, memenuhi" },//v
+  { word: "accomplishment", arti: "bakat; pencapaian" },//v
+  { word: "accordance", arti: "Sesuai dengan, berkenaan dengan" },//v
+  { word: "accountability", arti: "akuntabilitas, tanggung jawab" },//v
+  { word: "accumulate", arti: "menimbun; mengumpulkan" },//v
+  { word: "accuracy", arti: "ketepatan" },//v
+  { word: "accusation", arti: "tuduhan" },//v
+  { word: "acknowledge", arti: "mengakui, menyatakan menerima, berterima kasih, menyapa" },//v
+  { word: "acquaintance", arti: "kenalan" },//v
+  { word: "acquaintance (dengan with)", arti: "pengetahuan" },//v
+  { word: "acquire", arti: "mendapatkan, memperoleh, mempelajari" },//v
+  { word: "activist", arti: "aktivis" },//v
+  { word: "adaptation", arti: "adaptasi; penyesuaian" },//v
+  { word: "adhere (dengan to)", arti: "merekat, melekat, menempel, setia" },//v
   { word: "adjacent", arti: "bersebelahan" },
   { word: "adjustment", arti: "penyesuaian" },
   { word: "administer", arti: "mengelola; mengurus" },
@@ -1068,3 +1069,4 @@ window.loadedQuestions = [
   { word: "congenial", arti: "serasi, cocok" },
   { word: "conjecture", arti: "dugaan, perkiraan" },
 ];
+
