@@ -113,6 +113,9 @@ function renderQuestions() {
            <label>British: <input type="text" id="British-${index}"></label>
            <label>American: <input type="text" id="American-${index}"></label>
            <div id="feedback-${index}"></div>`;
+    } else if (currentCategory === "Phrasal Verb") {
+      html += `<p><strong>${q.word}</strong></p>
+               <label><input type="text" id="arti-${index}" placeholder="Tulis artinya"></label>`;
     } 
 
     html += `<br><button onclick="checkAnswer(${index})">Cek Jawaban</button>
@@ -247,7 +250,17 @@ function checkAnswer(index) {
   feedback = correct
     ? `<span class="correct">Benar!</span>`
     : `<span class="wrong">Salah! British: ${q.British}, American: ${q.American}</span>`;
-}
+} else if (currentCategory === "Phrasal Verb") {
+  const userInput = document.getElementById(`arti-${index}`).value;
+  const userSet = normalizeAnswer(userInput);
+  const correctSet = normalizeAnswer(q.arti);
+
+  correct = userSet === correctSet;
+
+  feedback = correct
+    ? `<span class="correct">Benar!</span>`
+    : `<span class="wrong">Salah! Jawaban benar: ${q.arti}</span>`;
+  }
 
   if (!(index in scorePerQuestion)) {
     scorePerQuestion[index] = correct ? 1 : 0;
