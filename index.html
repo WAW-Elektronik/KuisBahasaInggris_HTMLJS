@@ -41,7 +41,7 @@
 
   <div class="kategori-section">
     <label>Pengetahuan Kata Sesuai CEFR:</label>
-    <select onchange="loadCategory('CERF', this.value)">
+    <select onchange="loadCategory('CEFR', this.value)">
       <option value="">-- Pilih Subkategori --</option>
       <option value="A1">A1 Level</option>
       <option value="A2">A2 Level</option>
@@ -49,6 +49,19 @@
       <option value="B2">B2 Level</option>
       <option value="C1">C1 Level</option>
       <option value="C2">C2 Level</option>
+    </select>
+  </div>
+
+  <div class="kategori-section">
+    <label>Pengetahuan Kata :</label>
+    <select onchange="loadCategory('ReferenceFromEF', this.value)">
+      <option value="">-- Pilih Subkategori --</option>
+      <option value="100Kata">100 kata</option>
+      <option value="1000Kata">1000 kata (masih 0)</option>
+      <option value="3000Kata">3000 kata (baru 600)</option>
+      <option value="50KataBenda">50 kata benda</option>
+      <option value="50KataSifat">50 kata sifat</option>
+      <option value="50KataKerja">50 kata kerja</option>
     </select>
   </div>
 
@@ -143,11 +156,18 @@
     </select>
   </div>
 
+  <div class="kategori-section">
+    <label>Phrasal Verbs:</label>
+    <select onchange="loadCategory('Phrasal Verb', this.value)">
+      <option value="">-- Pilih Subkategori --</option>
+      <option value="PhrasalVerb">Phrasal Verbs</option>
+      <!--<option value="OrdinalNumberPenggunaan">Penggunaan</option>-->
+    </select>
+  </div>
+
   <p id="totalScore">Total Skor: 0 / 0 (0%)</p>
   <div id="quizContainer">Silakan pilih subkategori dari salah satu bagian untuk memulai kuis.</div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
